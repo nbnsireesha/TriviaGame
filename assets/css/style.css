@@ -12,6 +12,7 @@ body{
 	display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 2%;
 }
 h1{
 	color: orange;
@@ -38,4 +39,8 @@ button{
 	border: none;
 	margin-bottom: 20%;
 	margin-top: 10%;
+}
+img{
+	width: 250px;
+	height: 250px;
 }
