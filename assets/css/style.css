@@ -20,13 +20,13 @@ h1{
 h3{
 	color: #ff8400;
 }
-button:hover{
+#start:hover{
 	border-radius: 12px;
 	background-color: orange;
 	color: white;
 	border: none;
 }
-button{
+#start{
 	align-content: center;
 	background-color: #5DADE2;
 	color: white;
@@ -43,4 +43,18 @@ button{
 img{
 	width: 250px;
 	height: 250px;
+}
+#startOver{
+	align-content: center;
+	background-color: #5DADE2;
+	color: white;
+	width: 150px;
+	height: 50px;
+	border: none;
+	margin-left: 10px;
+	margin-left: 25%;
+	border-radius: 12px;
+	border: none;
+	margin-bottom: 20%;
+	margin-top: 10%;
 }

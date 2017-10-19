@@ -9,6 +9,7 @@ $(document).ready(function(){
 	var notAnswered = 0;
 	var notCorrect = 0;
 	var timeoutVar;
+	$(".result").hide();
 	var test_status,questions,choice,choices,cha,chb,chc,chd;
 	var correctImageArray = ["https://media0.giphy.com/media/8fen5LSZcHQ5O/200.webp#3-grid1","https://media2.giphy.com/media/kEKcOWl8RMLde/200w.webp#6-grid1","https://media1.giphy.com/media/ALO2TKYKiGxmo/200.webp#28-grid1","https://media0.giphy.com/media/3otPoumTG9VHMQlIPu/200.webp#3-grid1"
 	,"https://media2.giphy.com/media/l0MYy7QpDDVGVfAAw/200.webp#11-grid1"];
@@ -23,10 +24,9 @@ $(document).ready(function(){
 
 	 ];//end of questions array
 	 var answArray = ["blue","5","California","Jefferson City","Wild Sunflower"];
-	 //console.log(questions[0][0]);
 	 function renderQuestion(){//this genarates only one question at a time
-	 	// setTimeout("($(".correctIndicator").hide())",2000);
-	 	 $(".correctIndicator").hide();
+
+	 	$(".correctIndicator").hide();
 	 	$(".statusOfQuestions").show();
 	 	$(".quizBlock").show();
 	 	console.log(pos);
@@ -35,18 +35,13 @@ $(document).ready(function(){
 	 		$("#timeRem").hide();
 	 		$(".statusOfQuestions").hide();
 	 		$(".quizBlock").hide();
-	 		$(".result").html("<h2>All Done, here how you did");
+	 		$(".result").show();
+	 		$(".result").append("<h2>All Done, here how you did");
 	 		$(".result").append("<h3>Correct Answers : " +(correct) +"</h3>");
 	 		$(".result").append("<h3>InCorrect Answers : " +(notCorrect) +"</h3>");
 	 		$(".result").append("<h3> UnAnswered : " +(notAnswered) +"</h3>");
+	 		$("#startOver").show();
 	 		// //restartGame();
-	 		//$(".result").append("<button id = "startOver">Start Over?</button>");
-	 		$('<input type="button" id="startOver" value="Start Over?"/>').appendTo('.result');
-	 		$("#startOver").css("margin-left","25%");
-	 		$("#startOver").css("background-color","#5DADE2");
-	 		$("#startOver").css("border","none");
-	 		$("#startOver").css("color","white");
-
 	 		return;
 	 	}
 	 	$(".statusOfQuestions").show();
@@ -70,13 +65,15 @@ $(document).ready(function(){
 	 function restartGame(){
 	 	pos = 0;
 	 	notAnswered = 0;
-	 	win = 0;
 	 	totalTime = 30;
-	 	alert("game restarted");
-	 	// $("h1").show();
-	 	// $("#timeRem").show();
-	 	// $("#start").show();
-	 	// renderQuestion();
+	 	correct = 0;
+	 	notCorrect = 0;
+	 	//alert("game restarted");
+	 	$(".result").hide();
+	 	$("h1").show();
+	 	$("#timeRem").show();
+	 	$("#start").show();
+	 	//renderQuestion();
    //  	timeoutVar = setTimeout(checkTime,1000);
 
 	 }
