@@ -96,15 +96,6 @@ $(document).ready(function(){
 	 			choice = choices[i].value;
 	 		}
 	 	}
-	 	if(choice == ""){
-	 		$(".correctIndicator").html("Time Remaining : 00 seconds");
-	 		$(".correctIndicator").append("<br>");
-	 		$(".correctIndicator").text("Not Answered");
-	 		$(".correctIndicator").append("<br>");
-	 		$(".correctIndicator").append("Correct Answer was:" +answArray[pos]);
-		 	$(".correctIndicator").append("<img src ="+unAnsweredImageArray[0]+">");
-		 	$(".correctIndicator").show();
-	 	}
 	 	if(choice == questions[pos][5]){
 	 		correct++;
 		 	$(".correctIndicator").html("Time Remaining : "+totalTime);
@@ -171,12 +162,13 @@ $(document).ready(function(){
 		 		$(".correctIndicator").append("Correct Answer was:" +answArray[pos]);
 			 	$(".correctIndicator").append("<img src = https://media1.giphy.com/media/3oEdvczpwpfwy2aTJK/200.webp#13-grid1>");
 		 	
-		 	
+		 		
 				//setTimeout(checkAnswer,1);
+				pos++;
 				setTimeout(renderQuestion,3000);
 				clearInterval(timeoutVar);
 				totalTime = 30;
-				pos++;
+				
 			}
 			//if answered check the answer and  move to the nest question
 			if ($('[name="choices"]').is(':checked')){
