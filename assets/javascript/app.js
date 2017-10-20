@@ -63,6 +63,8 @@ $(document).ready(function(){
 	 	$(".quizBlock").append("<input type = 'radio' name = 'choices' value = 'D'>" +chd +"<br>");
 
 		timeoutVar = setTimeout(checkTime,1);
+		clearInterval(timeoutVar);
+		totalTime = 30;
 	 }
 	 function restartGame(){
 	 	pos = 0;
@@ -166,8 +168,8 @@ $(document).ready(function(){
 				//setTimeout(checkAnswer,1);
 				pos++;
 				setTimeout(renderQuestion,3000);
-				clearInterval(timeoutVar);
-				totalTime = 30;
+				// clearInterval(timeoutVar);
+				// totalTime = 30;
 				
 			}
 			//if answered check the answer and  move to the nest question
