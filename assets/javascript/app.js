@@ -9,7 +9,7 @@ $(document).ready(function(){
 	var notAnswered = 0;
 	var notCorrect = 0;
 	var timeoutVar;
-	$(".result").hide();
+	$("#startOver").hide();
 	var test_status,questions,choice,choices,cha,chb,chc,chd;
 	var correctImageArray = ["https://media0.giphy.com/media/8fen5LSZcHQ5O/200.webp#3-grid1","https://media2.giphy.com/media/kEKcOWl8RMLde/200w.webp#6-grid1","https://media1.giphy.com/media/ALO2TKYKiGxmo/200.webp#28-grid1","https://media0.giphy.com/media/3otPoumTG9VHMQlIPu/200.webp#3-grid1"
 	,"https://media2.giphy.com/media/l0MYy7QpDDVGVfAAw/200.webp#11-grid1"];
@@ -60,7 +60,7 @@ $(document).ready(function(){
 	 	$(".quizBlock").append("<input type = 'radio' name = 'choices' value = 'C'>" +chc +"<br>");
 	 	$(".quizBlock").append("<input type = 'radio' name = 'choices' value = 'D'>" +chd +"<br>");
 
-		timeoutVar = setTimeout(checkTime,1000);
+		timeoutVar = setTimeout(checkTime,1);
 	 }
 	 function restartGame(){
 	 	pos = 0;
@@ -69,10 +69,12 @@ $(document).ready(function(){
 	 	correct = 0;
 	 	notCorrect = 0;
 	 	//alert("game restarted");
+	 	$(".result").empty();
 	 	$(".result").hide();
 	 	$("h1").show();
 	 	$("#timeRem").show();
 	 	$("#start").show();
+	 	$("#time").html("00:00");
 	 	//renderQuestion();
    //  	timeoutVar = setTimeout(checkTime,1000);
 
