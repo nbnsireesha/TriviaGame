@@ -10,7 +10,9 @@ $(document).ready(function(){
 	var notCorrect = 0;
 	var timeoutVar;
 	$("#startOver").hide();
+	$("#timeRem").hide();
 	var test_status,questions,choice,choices,cha,chb,chc,chd;
+	var unAnsweredImageArray = ["https://media1.giphy.com/media/3oEdvczpwpfwy2aTJK/200.webp#13-grid1"];
 	var correctImageArray = ["https://media0.giphy.com/media/8fen5LSZcHQ5O/200.webp#3-grid1","https://media2.giphy.com/media/kEKcOWl8RMLde/200w.webp#6-grid1","https://media1.giphy.com/media/ALO2TKYKiGxmo/200.webp#28-grid1","https://media0.giphy.com/media/3otPoumTG9VHMQlIPu/200.webp#3-grid1"
 	,"https://media2.giphy.com/media/l0MYy7QpDDVGVfAAw/200.webp#11-grid1"];
 	var wrongImageArray = ["https://media3.giphy.com/media/26ybwvTX4DTkwst6U/200.webp#0-grid1","https://media1.giphy.com/media/COYGe9rZvfiaQ/200.webp#37-grid1",
@@ -25,7 +27,7 @@ $(document).ready(function(){
 	 ];//end of questions array
 	 var answArray = ["blue","5","California","Jefferson City","Wild Sunflower"];
 	 function renderQuestion(){//this genarates only one question at a time
-
+	 	$("#timeRem").show();
 	 	$(".correctIndicator").hide();
 	 	$(".statusOfQuestions").show();
 	 	$(".quizBlock").show();
@@ -73,9 +75,9 @@ $(document).ready(function(){
 	 	$(".result").hide();
 	 	$("h1").show();
 	 	$("#timeRem").show();
-	 	$("#start").show();
-	 	$("#time").html("00:00");
-	 	//renderQuestion();
+	 	//$("#start").show();
+	 	$("#timeRem").hide();
+	 	renderQuestion();
    //  	timeoutVar = setTimeout(checkTime,1000);
 
 	 }
@@ -93,6 +95,15 @@ $(document).ready(function(){
 	 		{
 	 			choice = choices[i].value;
 	 		}
+	 	}
+	 	if(choice == ""){
+	 		$(".correctIndicator").html("Time Remaining : 00 seconds");
+	 		$(".correctIndicator").append("<br>");
+	 		$(".correctIndicator").text("Not Answered");
+	 		$(".correctIndicator").append("<br>");
+	 		$(".correctIndicator").append("Correct Answer was:" +answArray[pos]);
+		 	$(".correctIndicator").append("<img src ="+unAnsweredImageArray[0]+">");
+		 	$(".correctIndicator").show();
 	 	}
 	 	if(choice == questions[pos][5]){
 	 		correct++;
@@ -149,7 +160,20 @@ $(document).ready(function(){
 			if($('[name="choices"]').is(":not(:checked)") && totalTime <= 0 )
 			{
 				notAnswered++;
-				setTimeout(renderQuestion,1);
+				$(".statusOfQuestions").hide();
+		 		$(".quizBlock").hide();
+				$(".correctIndicator").show();
+				$("#timeRem").hide();
+				$(".correctIndicator").html("Time Remaining : 00 seconds");
+		 		$(".correctIndicator").append("<br>");
+		 		$(".correctIndicator").append("Not Answered");
+		 		$(".correctIndicator").append("<br>");
+		 		$(".correctIndicator").append("Correct Answer was:" +answArray[pos]);
+			 	$(".correctIndicator").append("<img src = https://media1.giphy.com/media/3oEdvczpwpfwy2aTJK/200.webp#13-grid1>");
+		 	
+		 	
+				//setTimeout(checkAnswer,1);
+				setTimeout(renderQuestion,3000);
 				clearInterval(timeoutVar);
 				totalTime = 30;
 				pos++;
