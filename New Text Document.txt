@@ -1,4 +1,0 @@
-https://stackoverflow.com/questions/15348725/how-to-make-quiz-questions-appear-one-at-a-time-in-javascript
-
-
-http://jsfiddle.net/anthkris/3fnzdnun/
