@@ -43,7 +43,6 @@ $(document).ready(function(){
 	 		$(".result").append("<h3>InCorrect Answers : " +(notCorrect) +"</h3>");
 	 		$(".result").append("<h3> UnAnswered : " +(notAnswered) +"</h3>");
 	 		$("#startOver").show();
-	 		// //restartGame();
 	 		return;
 	 	}
 	 	$(".statusOfQuestions").show();
@@ -63,8 +62,8 @@ $(document).ready(function(){
 	 	$(".quizBlock").append("<input type = 'radio' name = 'choices' value = 'D'>" +chd +"<br>");
 
 		timeoutVar = setTimeout(checkTime,1);
-		clearInterval(timeoutVar);
-		totalTime = 30;
+		// clearInterval(timeoutVar);
+		// totalTime = 30;
 	 }
 	 function restartGame(){
 	 	pos = 0;
@@ -72,16 +71,12 @@ $(document).ready(function(){
 	 	totalTime = 30;
 	 	correct = 0;
 	 	notCorrect = 0;
-	 	//alert("game restarted");
 	 	$(".result").empty();
 	 	$(".result").hide();
 	 	$("h1").show();
 	 	$("#timeRem").show();
-	 	//$("#start").show();
 	 	$("#timeRem").hide();
 	 	renderQuestion();
-   //  	timeoutVar = setTimeout(checkTime,1000);
-
 	 }
 	 $("#startOver").click(function(){
         $("#startOver").hide();
@@ -103,15 +98,11 @@ $(document).ready(function(){
 		 	$(".correctIndicator").html("Time Remaining : "+totalTime);
 		 	$(".correctIndicator").append("<br>");
 		 	$(".correctIndicator").text("correct");
-		 	//$("#timeRem").append(correctDiv);
-		 	//var src = 
-		 	//$(".statusOfQuestions").fadeOut("fast");
 		 	$(".statusOfQuestions").hide();
-		 	$(".quizBlock").hide();//.fadeOut("fast");
+		 	$(".quizBlock").hide();
 		 	$(".correctIndicator").show();
-		 	//$(".correctDiv").fadeIn();
 		 	$(".correctIndicator").append("<img src ="+correctImageArray[pos]+">");
-		 	//$(".timeRem").show();
+		 	$(".correctIndicator").css("width","250px");
 
 
 	 	}
@@ -131,21 +122,10 @@ $(document).ready(function(){
 	 	pos++;
 	 	console.log(choice);
 	 	setTimeout(renderQuestion,3000);
-	 	// renderQuestion();
-	 	//checkTime();
 	 }
-	 // function displayCurrentStatus(){
-	 	
-	 // 	//jQuery(".correctDiv").delay( 1000 ).fadeOut("slow");
-	 // 	//setTimeout($(".correctDiv").hide(),3000);
-	 // }
 	 function checkTime(){
 	 		//totalTime = 30;
 			$("#time").html(totalTime);
-			// if(totalTime <= 0){
-			// 	timeOut = true;
-			// 	//setTimeout(checkAnswer,1);
-			// }
 			if(pos>=questions.length){
 				return;
 			}
@@ -168,8 +148,8 @@ $(document).ready(function(){
 				//setTimeout(checkAnswer,1);
 				pos++;
 				setTimeout(renderQuestion,3000);
-				// clearInterval(timeoutVar);
-				// totalTime = 30;
+				clearInterval(timeoutVar);
+				totalTime = 30;
 				
 			}
 			//if answered check the answer and  move to the nest question
@@ -191,6 +171,9 @@ $(document).ready(function(){
         $("button").hide();
     	$(".quiz").show();
     	renderQuestion();
+    	
+    	// clearInterval(timeoutVar);
+    	//totalTime = 30;
 
     });
 });
