@@ -23,6 +23,7 @@ $(document).ready(function(){
 		["what is the most populated state in the USA ?","Texas", "New York", "Florida"," California","D"],
 		["what is the capital city of missouri?","Kansas city", "St. Louis", "Jefferson City","Springfield","C"],
 		["what is the kansas state flower?","Allium", "Wild Sunflower", "Balloon Flower","Castor Bean","B"]
+		["what is the most used pet?","bird"]
 
 	 ];//end of questions array
 	 var answArray = ["blue","5","California","Jefferson City","Wild Sunflower"];
@@ -61,8 +62,9 @@ $(document).ready(function(){
 	 	$(".quizBlock").append("<input type = 'radio' name = 'choices' value = 'C'>" +chc +"<br>");
 	 	$(".quizBlock").append("<input type = 'radio' name = 'choices' value = 'D'>" +chd +"<br>");
 
+	 	clearTimeout(timeoutVar);
 		timeoutVar = setTimeout(checkTime,1);
-		// clearInterval(timeoutVar);
+		// 
 		// totalTime = 30;
 	 }
 	 function restartGame(){
@@ -147,21 +149,32 @@ $(document).ready(function(){
 		 		
 				//setTimeout(checkAnswer,1);
 				pos++;
-				setTimeout(renderQuestion,3000);
 				clearInterval(timeoutVar);
+				setTimeout(renderQuestion,3000);
 				totalTime = 30;
 				
 			}
-			//if answered check the answer and  move to the nest question
-			if ($('[name="choices"]').is(':checked')){
-				setTimeout(checkAnswer,1);
-				clearInterval(timeoutVar);
-				totalTime = 30;
-			}
 			else{
-				totalTime--;
-				setTimeout(checkTime,1000);
+				if ($('[name="choices"]').is(':checked')){
+					setTimeout(checkAnswer,1);
+					clearInterval(timeoutVar);
+					totalTime = 30;
+				}
+				else{
+					totalTime--;
+					setTimeout(checkTime,1000);
+				}
 			}
+			//if answered check the answer and  move to the nest question
+			// if ($('[name="choices"]').is(':checked')){
+			// 	setTimeout(checkAnswer,1);
+			// 	clearInterval(timeoutVar);
+			// 	totalTime = 30;
+			// }
+			// else{
+			// 	totalTime--;
+			// 	setTimeout(checkTime,1000);
+			// }
 	};//end of checkTime function
 	
 	
