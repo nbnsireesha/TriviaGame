@@ -14,19 +14,20 @@ $(document).ready(function(){
 	var test_status,questions,choice,choices,cha,chb,chc,chd;
 	var unAnsweredImageArray = ["https://media1.giphy.com/media/3oEdvczpwpfwy2aTJK/200.webp#13-grid1"];
 	var correctImageArray = ["https://media0.giphy.com/media/8fen5LSZcHQ5O/200.webp#3-grid1","https://media2.giphy.com/media/kEKcOWl8RMLde/200w.webp#6-grid1","https://media1.giphy.com/media/ALO2TKYKiGxmo/200.webp#28-grid1","https://media0.giphy.com/media/3otPoumTG9VHMQlIPu/200.webp#3-grid1"
-	,"https://media2.giphy.com/media/l0MYy7QpDDVGVfAAw/200.webp#11-grid1"];
+	,"https://media2.giphy.com/media/l0MYy7QpDDVGVfAAw/200.webp#11-grid1","https://media3.giphy.com/media/RQSuZfuylVNAY/200w.webp#3-grid1","https://media0.giphy.com/media/l41lUR5urK4IAk3V6/200w.webp#21-grid3"];
 	var wrongImageArray = ["https://media3.giphy.com/media/26ybwvTX4DTkwst6U/200.webp#0-grid1","https://media1.giphy.com/media/COYGe9rZvfiaQ/200.webp#37-grid1",
-	"https://media3.giphy.com/media/cd4UNVXqk93ZS/200.webp#1-grid1","https://media1.giphy.com/media/xT9IgsFPGndz4ctoNG/200w.webp#6-grid1","https://media2.giphy.com/media/l0MYASVBujOmTebDy/200w.webp#9-grid1"];
+	"https://media3.giphy.com/media/cd4UNVXqk93ZS/200.webp#1-grid1","https://media1.giphy.com/media/xT9IgsFPGndz4ctoNG/200w.webp#6-grid1","https://media2.giphy.com/media/l0MYASVBujOmTebDy/200w.webp#9-grid1","https://media3.giphy.com/media/naXyAp2VYMR4k/200.webp#11-grid1","https://media3.giphy.com/media/bQEVifmPjIBkA/200_s.gif#16-grid1"];
 	var questions = [
 		["what is the color of sky?","blue", "red", "white","blue and white","A"],
 		["what is 2+3","9", "5", "3","11","B"],
 		["what is the most populated state in the USA ?","Texas", "New York", "Florida"," California","D"],
 		["what is the capital city of missouri?","Kansas city", "St. Louis", "Jefferson City","Springfield","C"],
-		["what is the kansas state flower?","Allium", "Wild Sunflower", "Balloon Flower","Castor Bean","B"]
-		["what is the most used pet?","bird"]
+		["what is the kansas state flower?","Allium", "Wild Sunflower", "Balloon Flower","Castor Bean","B"],
+		["what is the most used pet?","bird","cat","hamster","dog","D"],
+		["what is 60 + 60","40","80","120","100","C"]
 
 	 ];//end of questions array
-	 var answArray = ["blue","5","California","Jefferson City","Wild Sunflower"];
+	 var answArray = ["blue","5","California","Jefferson City","Wild Sunflower","dog","120"];
 	 function renderQuestion(){//this genarates only one question at a time
 	 	$("#timeRem").show();
 	 	$(".correctIndicator").hide();
